@@ -1,0 +1,3 @@
+name: KinkoAPI
+version: '${version}'
+main: fr.twizox.kinkoapi.KinkoAPI
