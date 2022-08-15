@@ -1,3 +1,4 @@
-name: KinkoAPI
+name: KinkoCore
 version: '${version}'
-main: fr.twizox.kinkoapi.KinkoAPI
+main: fr.twizox.kinkocore.KinkoCore
+softdepend: [PlaceholderAPI]

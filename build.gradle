@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id 'maven-publish'
 }
 
 group = 'fr.twizox'
@@ -15,11 +17,21 @@ repositories {
         name = 'sonatype'
         url = 'https://oss.sonatype.org/content/groups/public/'
     }
+    maven {
+        url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+    }
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
+    compileOnly 'me.clip:placeholderapi:2.11.2'
+    implementation 'com.h2database:h2:2.1.214'
+    implementation 'com.j256.ormlite:ormlite-jdbc:6.1'
+    implementation 'com.github.Xezard:XConfiguration:2.0.2'
 }
+
+compileJava.options.encoding = 'UTF-8'
 
 def targetJavaVersion = 8
 java {
@@ -43,5 +55,13 @@ processResources {
     filteringCharset 'UTF-8'
     filesMatching('plugin.yml') {
         expand props
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
     }
 }
