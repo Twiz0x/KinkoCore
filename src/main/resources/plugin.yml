@@ -2,3 +2,9 @@ name: KinkoCore
 version: '${version}'
 main: fr.twizox.kinkocore.KinkoCore
 softdepend: [PlaceholderAPI]
+commands:
+  kinko:
+    description: "KinkoCore command"
+    permission: kinko.admin
+  equipage:
+    description: "Equipage command"

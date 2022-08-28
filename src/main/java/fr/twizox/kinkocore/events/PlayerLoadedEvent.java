@@ -17,11 +17,11 @@ public class PlayerLoadedEvent extends PlayerEvent {
 
     @Override
     public HandlerList getHandlers() {
-        return null;
+        return handlers;
     }
 
     public static HandlerList getHandlerList() {
-        return null;
+        return handlers;
     }
 
     public Account getAccount() {

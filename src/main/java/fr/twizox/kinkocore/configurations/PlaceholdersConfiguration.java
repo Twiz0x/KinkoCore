@@ -9,6 +9,8 @@ import java.util.HashMap;
 
 public class PlaceholdersConfiguration extends Configuration {
 
+    // TODO: Remove XConfiguration & create a standard config from bukkit.
+
     @ConfigurationComments("Quand le placeholders n'est pas valide/valeur introuvable")
     @ConfigurationField("Non-trouvé")
     public String notFound = "§6Chargement...";

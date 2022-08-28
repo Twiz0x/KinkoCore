@@ -1,0 +1,4 @@
+
+messages:
+    invalid-camp: "Camp non trouvé !"
+    camp-changed: "Vous venez de rejoindre le camp %s"

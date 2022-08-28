@@ -7,7 +7,6 @@ import com.j256.ormlite.table.TableUtils;
 
 import java.io.File;
 import java.sql.SQLException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class H2Database extends Database {
@@ -20,10 +19,10 @@ public class H2Database extends Database {
         String connectionUrl = "jdbc:h2:" + path + File.separator + name;
         try {
             connectionSource = new JdbcConnectionSource(connectionUrl);
-            log(Level.FINE, "Successfully connected to database: " + name);
+            logger.info("Successfully connected to database: " + name);
             return true;
         } catch (SQLException e) {
-            log(Level.SEVERE, "Could not connect the database" + name + "!", e);
+            logger.severe("Could not connect the database" + name + "!" + "\n" + e);
             return false;
         }
     }
@@ -31,9 +30,9 @@ public class H2Database extends Database {
     public void close() {
         try {
             connectionSource.close();
-            log(Level.FINE, "Successfully disconnected from the database " + name);
+            logger.fine("Successfully disconnected from the database " + name);
         } catch (Exception e) {
-            log(Level.SEVERE, "Could not disconnect from the database " + name + "!", e);
+            logger.severe("Could not disconnect from the database " + name + "!" + "\n" + e);
         }
     }
 

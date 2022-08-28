@@ -1,7 +1,5 @@
 package fr.twizox.kinkocore;
 
-import org.apache.commons.lang.StringUtils;
-
 public enum Camp {
 
     CITOYEN("Civil", "Baron", "Compte", "Duc", "Roi"),
@@ -10,14 +8,15 @@ public enum Camp {
     REBELLE("Rebelle", "Révolutionnaire", "Officier", "Commandant", "Capitaine");
 
     private final String[] ranks;
+    private final String name;
 
-    Camp(String... ranks) {
+    Camp(String name, String... ranks) {
+        this.name = name;
         this.ranks = ranks;
     }
 
-    @Override
-    public String toString() {
-        return StringUtils.capitalize(name().toLowerCase());
+    public String getName() {
+        return name;
     }
 
     public String getRank(int level) {
