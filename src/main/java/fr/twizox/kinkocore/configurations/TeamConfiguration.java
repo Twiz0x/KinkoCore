@@ -27,6 +27,9 @@ public class TeamConfiguration extends Configuration {
             "/equipage kick <pseudo> : retirer un joueur de son équipage (chef seulement)\n" +
             "/equipage delete : dissoudre l'équipage (chef uniquement) ";
 
+    @ConfigurationField("no-permission")
+    public String noPermission = "Vous n'avez pas la permission d'effectuer cette action.";
+
     @ConfigurationField("team-created")
     public String teamCreated = "Equipe créée avec succès";
 
@@ -101,6 +104,9 @@ public class TeamConfiguration extends Configuration {
 
     @ConfigurationField("cannot-invite-self")
     public String cannotInviteSelf = "Erreur: vous ne pouvez pas vous inviter vous même";
+
+    @ConfigurationField("cannot-invite-other-camp")
+    public String cannotInviteOtherCamp = "Erreur: ce joueur n'est pas §bPirate §7!";
 
     @ConfigurationField("join-usage")
     public String joinUsage = "/equipage join <pseudo>";

@@ -23,6 +23,11 @@ public interface TeamSubCommand extends SubCommand {
     }
 
     @Override
+    default String getDescription() {
+        return "";
+    }
+
+    @Override
     default String getPermission() {
         return null;
     }
@@ -32,7 +37,6 @@ public interface TeamSubCommand extends SubCommand {
     }
 
     default boolean canExecute(CommandSender sender) {
-        sender.sendMessage("DEBUG: Type=" + getSenderType() + ", " + sender.getClass().getSimpleName());
         if (getPermission() != null && !sender.hasPermission(getPermission())) return false;
         if (getSenderType().getSenderClass() == null) return true;
         return getSenderType().getSenderClass().isAssignableFrom(sender.getClass());

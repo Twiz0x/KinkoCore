@@ -17,11 +17,6 @@ public class LeaveSubCommand implements TeamSubCommand {
     }
 
     @Override
-    public String getDescription() {
-        return null;
-    }
-
-    @Override
     public String getUsage() {
         return null;
     }

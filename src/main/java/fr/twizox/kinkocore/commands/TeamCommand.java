@@ -79,18 +79,21 @@ public class TeamCommand implements CommandExecutor {
 
         if (args.length == 0) {
             if (team == null) player.sendMessage(applyPrefix(config.noTeam));
-            else listMembers(player, team);
+            else listMembers(sender, team);
             return true;
         }
 
         args[0] = args[0].toLowerCase();
         if (!subCommands.containsKey(args[0])) return sendHelp(player);
         TeamSubCommand subCommand = (TeamSubCommand) subCommands.get(args[0]);
-        if (!subCommand.canExecute(sender)) return sendHelp(player);
+        if (!subCommand.canExecute(sender)) {
+            sender.sendMessage(applyPrefix(config.noPermission));
+            return true;
+        }
 
         if (subCommand.getCamp() != null) {
             if (account.getCamp() != subCommand.getCamp()) {
-                player.sendMessage(applyPrefix(String.format(config.notRequieredCamp, subCommand.getCamp().toString())));
+                sender.sendMessage(applyPrefix(String.format(config.notRequieredCamp, subCommand.getCamp().toString())));
                 return true;
             }
         }

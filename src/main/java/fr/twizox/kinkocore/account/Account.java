@@ -58,7 +58,7 @@ public class Account {
     }
 
     public Team getTeam() {
-        return KinkoCore.teamManager.getTeam(team);
+        return hasTeam() ? KinkoCore.teamManager.getTeam(team) : null;
     }
 
     public void setTeam(String team) {

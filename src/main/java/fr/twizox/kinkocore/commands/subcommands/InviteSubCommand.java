@@ -49,7 +49,7 @@ public class InviteSubCommand implements TeamSubCommand {
         Player target = Bukkit.getPlayer(args[0]);
 
         if (target == null) return sendFormattedMessage(player, String.format(config.playerNotFound, args[1]));
-
+        if (account.getCamp() != accountManager.getAccount(target.getUniqueId()).getCamp()) return sendFormattedMessage(player, config.cannotInviteOtherCamp);
         if (team.hasMember(target.getUniqueId()))
             return sendFormattedMessage(player, String.format(config.targetAlreadyInTeam, target.getName()));
 
