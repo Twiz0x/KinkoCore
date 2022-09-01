@@ -2,10 +2,10 @@ package fr.twizox.kinkocore;
 
 public enum Camp {
 
-    CITOYEN("Civil", "Baron", "Compte", "Duc", "Roi"),
-    PIRATE("Matelot", "Pirate", "Supernova", "Corsaire", "Empereur"),
-    MARINE("Soldat", "Sergent", "Lieutenant", "Vice-Amiral", "Amiral"),
-    REBELLE("Rebelle", "Révolutionnaire", "Officier", "Commandant", "Capitaine");
+    CITOYEN("Citoyen", "Civil", "Baron", "Compte", "Duc", "Roi"),
+    PIRATE("Pirate", "Matelot", "Pirate", "Supernova", "Corsaire", "Empereur"),
+    MARINE("Marine", "Soldat", "Sergent", "Lieutenant", "Vice-Amiral", "Amiral"),
+    REBELLE("Rebelle", "Rebelle", "Révolutionnaire", "Officier", "Commandant", "Capitaine");
 
     private final String[] ranks;
     private final String name;

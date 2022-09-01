@@ -1,4 +1,4 @@
-package fr.twizox.kinkocore.commands.subcommands;
+package fr.twizox.kinkocore.commands.team.subcommands;
 
 import fr.twizox.kinkocore.account.Account;
 import fr.twizox.kinkocore.teams.Team;
@@ -37,7 +37,7 @@ public class CreateSubCommand implements TeamSubCommand {
         if (args.length != 2) return sendFormattedMessage(player, config.createTeamUsage);
         if (teamManager.isExistingTeam(args[1])) return sendFormattedMessage(player, config.teamAlreadyExists);
 
-        teamManager.saveTeam(new Team(args[1], uuid));
+        teamManager.loadAndSaveTeam(new Team(args[1], uuid));
         account.setTeam(args[1]);
         accountManager.saveAccount(account);
         return sendFormattedMessage(player, config.teamCreated);

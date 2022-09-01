@@ -1,9 +1,9 @@
-package fr.twizox.kinkocore.commands;
+package fr.twizox.kinkocore.commands.team;
 
 import fr.twizox.kinkocore.KinkoCore;
 import fr.twizox.kinkocore.account.Account;
 import fr.twizox.kinkocore.account.AccountManager;
-import fr.twizox.kinkocore.commands.subcommands.*;
+import fr.twizox.kinkocore.commands.team.subcommands.*;
 import fr.twizox.kinkocore.configurations.TeamConfiguration;
 import fr.twizox.kinkocore.invitations.InviteManager;
 import fr.twizox.kinkocore.teams.Team;

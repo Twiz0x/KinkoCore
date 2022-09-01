@@ -1,4 +1,4 @@
-package fr.twizox.kinkocore.commands.subcommands;
+package fr.twizox.kinkocore.commands.team.subcommands;
 
 import fr.twizox.kinkocore.account.Account;
 import fr.twizox.kinkocore.teams.Team;
@@ -48,7 +48,7 @@ public class KickSubCommand implements TeamSubCommand {
             return sendFormattedMessage(player, String.format(config.targetNotInTeam, target.getName()));
 
         team.removeMember(target.getUniqueId());
-        teamManager.saveTeam(team);
+        teamManager.loadAndSaveTeam(team);
 
         if (target.isOnline()) {
             sendFormattedMessage(target.getPlayer(), config.gotKicked);

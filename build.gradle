@@ -21,6 +21,8 @@ repositories {
         url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
     }
     maven { url 'https://jitpack.io' }
+    maven { url 'https://repo.simplix.dev/repository/simplixsoft-public/' }
+    maven { url 'https://mvn.exceptionflug.de/repository/exceptionflug-public/' }
 }
 
 dependencies {
@@ -29,6 +31,9 @@ dependencies {
     implementation 'com.h2database:h2:2.1.214'
     implementation 'com.j256.ormlite:ormlite-jdbc:6.1'
     implementation 'com.github.Xezard:XConfiguration:2.0.2'
+    //implementation 'dev.simplix.cirrus:cirrus-spigot:2.1.0-SNAPSHOT'
+    //implementation 'dev.simplix.cirrus:cirrus-common:2.1.0-SNAPSHOT'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 compileJava.options.encoding = 'UTF-8'

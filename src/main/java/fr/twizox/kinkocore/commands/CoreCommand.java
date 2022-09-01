@@ -29,7 +29,6 @@ public class CoreCommand implements CommandExecutor {
             String message;
             try {
                 camp = Camp.valueOf(args[0].toUpperCase());
-                player.sendMessage(ChatColor.GREEN + "Vous avez choisi la campagne " + camp.name());
             } catch (IllegalArgumentException exception) {
                 message = config.getString("messages.invalid-camp", "Camp non trouvé !");
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));

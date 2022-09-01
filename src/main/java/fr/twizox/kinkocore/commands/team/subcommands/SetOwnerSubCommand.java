@@ -1,4 +1,4 @@
-package fr.twizox.kinkocore.commands.subcommands;
+package fr.twizox.kinkocore.commands.team.subcommands;
 
 import fr.twizox.kinkocore.account.Account;
 import fr.twizox.kinkocore.teams.Team;
@@ -42,7 +42,7 @@ public class SetOwnerSubCommand implements TeamSubCommand {
         if (!team.hasMember(target.getUniqueId())) return sendFormattedMessage(player, String.format(config.targetNotInTeam, target.getName()));
 
         team.setOwner(target.getUniqueId());
-        teamManager.saveTeam(team);
+        teamManager.loadAndSaveTeam(team);
         return sendFormattedMessage(player, String.format(config.ownerSet, target.getName()));
     }
 }

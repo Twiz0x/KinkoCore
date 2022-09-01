@@ -77,7 +77,7 @@ public class InviteManager {
         team.addMember(target);
 
         accountManager.saveAccount(account);
-        teamManager.saveTeam(team);
+        teamManager.loadAndSaveTeam(team);
     }
 
 }

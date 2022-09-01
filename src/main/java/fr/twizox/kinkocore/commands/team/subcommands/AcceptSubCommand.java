@@ -1,4 +1,4 @@
-package fr.twizox.kinkocore.commands.subcommands;
+package fr.twizox.kinkocore.commands.team.subcommands;
 
 import fr.twizox.kinkocore.account.Account;
 import org.bukkit.Bukkit;

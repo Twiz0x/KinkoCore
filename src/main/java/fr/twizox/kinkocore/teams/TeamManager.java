@@ -1,68 +1,50 @@
 package fr.twizox.kinkocore.teams;
 
 import com.j256.ormlite.dao.Dao;
+import fr.twizox.kinkocore.AbstractManager;
 import fr.twizox.kinkocore.KinkoCore;
 import fr.twizox.kinkocore.account.Account;
 
-import java.sql.SQLException;
 import java.util.Collection;
-import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class TeamManager {
-
-    private final Dao<Team, String> dao;
-    private final ConcurrentHashMap<String, Team> teams;
+public class TeamManager extends AbstractManager<Team> {
 
     public TeamManager(Dao<Team, String> dao) {
-        this.teams = new ConcurrentHashMap<>();
-        this.dao = dao;
+        super(dao);
     }
 
     public ConcurrentHashMap<String, Team> getTeams() {
-        return teams;
+        return super.getEntities();
     }
 
-    public Map<String, Team> getPlayerDataMap() {
-        return teams;
+    public Team getTeam(String id) {
+        return super.getEntity(id);
     }
 
-    public Team getTeam(String teamId) {
-        return teams.get(teamId);
+    public Optional<Team> getTeamOptional(String id) {
+        return super.getOptionalEntity(id);
     }
 
-    public Optional<Team> getTeamOptional(String teamId) {
-        return Optional.ofNullable(teams.get(teamId));
+    public CompletableFuture<Team> getDatabaseTeam(String id) {
+        return super.getEntityFromDatabase(id);
     }
 
-    public CompletableFuture<Team> getDatabaseTeam(String teamName) {
-        return CompletableFuture.supplyAsync(() -> {
-            try {
-                return dao.queryForId(teamName);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        });
-    }
-
-    public void loadDatabaseTeam(String teamName) {
-        if (teams.containsKey(teamName)) return;
-        getDatabaseTeam(teamName).thenApply(team -> teams.put(teamName, team));
+    public void loadTeam(String id) {
+        super.loadEntity(id);
     }
 
     public void saveTeam(Team team) {
-        cache(team);
-        CompletableFuture.runAsync(() -> {
-            try {
-                dao.createOrUpdate(team);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        });
+        super.saveEntity(team);
     }
+
+    public void loadAndSaveTeam(Team team) {
+        super.loadAndSave(team.getName(), team);
+    }
+
     public void deleteTeam(Team team) {
         uncache(team.getName());
 
@@ -79,28 +61,25 @@ public class TeamManager {
                     KinkoCore.accountManager.saveAccount(account);
                 }
             }
-            try {
-                dao.delete(team);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+            super.deleteEntity(team);
         });
     }
 
+    @Override
     public void cache(Team team) {
-        teams.put(team.getName(), team);
+        super.cache(team.getName(), team);
     }
 
     public void uncache(String teamId) {
-        teams.remove(teamId);
+        super.uncache(teamId);
     }
 
     public Collection<String> getTeamsName() {
-        return teams.keySet();
+        return super.getEntities().keySet();
     }
 
     public boolean isExistingTeam(String teamName) {
-        return teams.containsKey(teamName);
+        return super.isCached(teamName);
     }
 
 }

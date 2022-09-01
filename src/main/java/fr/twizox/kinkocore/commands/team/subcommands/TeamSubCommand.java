@@ -1,4 +1,4 @@
-package fr.twizox.kinkocore.commands.subcommands;
+package fr.twizox.kinkocore.commands.team.subcommands;
 
 import fr.twizox.kinkocore.Camp;
 import fr.twizox.kinkocore.KinkoCore;

@@ -12,7 +12,7 @@ public class PlayerLoadedListener implements Listener {
     @EventHandler
     public void onPlayerLoad(PlayerLoadedEvent event) {
         Account account = event.getAccount();
-        if (account.hasTeam()) teamManager.loadDatabaseTeam(account.getTeamName());
+        if (account.hasTeam()) teamManager.loadTeam(account.getTeamName());
     }
 
 }

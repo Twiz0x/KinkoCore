@@ -1,4 +1,14 @@
 
 messages:
+
+    wrong-camp: "§7Erreur: cette commande est réservée aux §b%ss§7."
+
+    prime:
+        usage: "§7Usage: §b/prime <add|list>"
+        add-usage: "§7Usage: §b/prime add <joueur> <prime>"
+        add-not-rebelle-or-pirate: "§7Erreur: le joueur n'est pas Pirate ou Marine."
+        add-already-has-prime: "§7Erreur: le joueur a déjà une prime sur la tête."
+        added: "§7La prime a bien été ajoutée."
+
     invalid-camp: "Camp non trouvé !"
     camp-changed: "Vous venez de rejoindre le camp %s"

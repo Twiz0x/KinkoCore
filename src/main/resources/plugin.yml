@@ -8,3 +8,5 @@ commands:
     permission: kinko.admin
   equipage:
     description: "Equipage command"
+  prime:
+    description: "Prime command"

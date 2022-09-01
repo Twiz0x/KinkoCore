@@ -1,4 +1,4 @@
-package fr.twizox.kinkocore.commands.subcommands;
+package fr.twizox.kinkocore.commands.team.subcommands;
 
 import fr.twizox.kinkocore.account.Account;
 import fr.twizox.kinkocore.teams.Team;
@@ -46,7 +46,7 @@ public class LeaveSubCommand implements TeamSubCommand {
             }
         }
 
-        teamManager.saveTeam(team);
+        teamManager.loadAndSaveTeam(team);
         account.setTeam(null);
         accountManager.saveAccount(account);
 
